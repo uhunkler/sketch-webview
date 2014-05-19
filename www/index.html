@@ -1,0 +1,84 @@
+<html>
+
+<head>
+  <title>HTML page</title>
+  <link rel="stylesheet" href="css/pure-min.css" type="text/css"
+    media="screen" charset="utf-8">
+  <style type="text/css" media="screen">
+    body {
+      color: #666;
+      line-height: 1.6;
+      margin: 1em;
+    }
+  </style>
+  <script type="text/javascript" charset="utf-8">
+    (function(win, doc) {
+      win.de = this.de || {};
+      de.unodo = {
+        // Append some text at the end of the page.
+        // The method can be called from the Sketch script
+        writeTest: function(what) {
+          var output = doc.querySelector('#output');
+          output.innerHTML += '<br />' + what;
+
+          return "text appended: " + what;
+        },
+        // This method is called from the Sketch script
+        // and checks if the 'callThis' object is present in the windows
+        // obejct and if a property and a method is present.
+        callBack: function() {
+          var el,
+            a = [
+              'callThis in win -->', ('callThis' in win),
+              '| method log in callThis -->', ('log' in win.callThis),
+              '| method log_ in callThis -->', ('log_' in win.callThis),
+              '| property fixed in callThis -->', ('fixed' in win.callThis)
+            ];
+
+          // List all items in the callThis object.
+          for (el in win.callThis) {
+            a.push(el);
+          }
+
+          return a.join(" ");
+        },
+        // Get the value entered in the name form field.
+        // This method is called from the Sketch script.
+        getFormData: function() {
+          var form = document.querySelector('#theform'),
+            namefield = form.querySelector('#namefield').value;
+
+          return namefield;
+        }
+      };
+    }(this, document));
+  </script>
+</head>
+
+<body>
+  <section id="main">
+    <h1 class="title">HTML page</h1>
+    <div class="content">
+      <p>
+        In sed nunc in ligula vestibulum euismod at quis neque. Fusce lacus neque, vehicula sit amet aliquam sit amet, dictum quis nibh. Donec ullamcorper, felis aliquam sagittis dignissim, urna ante vehicula eros, et porta justo.
+      </p>
+
+      <form class="pure-form  pure-form-aligned" id="theform" action="">
+        <fieldset>
+          <label for="namefield">Name:</label>
+          <input id="namefield" type="text" name="namefield" placeholder="Enter a name">
+          <!-- <input type="submit" value="Save"> -->
+        </fieldset>
+      </form>
+
+      <p id="output"></p>
+    </div>
+  </section>
+  <script type="text/javascript" charset="utf-8">
+    (function(win, doc) {
+      de.unodo.writeTest("Initially added text when the page is loaded.<br />");
+    }(this, document));
+  </script>
+</body>
+
+</html>
