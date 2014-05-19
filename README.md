@@ -25,6 +25,7 @@ I created a JavaScript object, implemented a property and a method and the `isSe
 
 #### Question: How can a class with properties and methods be created in CocoaScript in a way that the properties and methods are accessible from the page JavaScript?
 
+### So far
 I have learned a lot about ObjC and CocoaScript and how a WebView should work. The possibility to execute JavaScript in the WebView is already great and I see a lot of potential here for people working with webdesign/webdevelopment.
 
 To solve the `WebFrameLoadDelegate` and the JavaScript -> CocoaScript communication I need support. It would be great when somebody may find the time to investigate and help solve the issues.
