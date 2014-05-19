@@ -14,6 +14,7 @@ The communication with the WebView is not possible when the panel with the WebVi
 #### The WebFrameLoadDelegate
 For the direct communication a WebFrameLoadDelegate is needed. I wrote a JavaScript function “WebViewLoadDelegate” which implements the two methods `webView:didClearWindowObject:forFrame:` -> JS function  `WebViewLoadDelegate.prototype.webView_didClearWindowObject_forFrame` and `webView:didFinishLoadForFrame:` -> JS function `WebViewLoadDelegate.prototype.webView_didFinishLoadForFrame`. I set the delegate on the WebView with `setFrameLoadDelegate()`, but the methods are never called. In the “Mocha” documentation I read that JavaScript functions are converted to classes (https://github.com/logancollins/Mocha#javascript-to-objective-c). So the delegate may be ok - I don’t know - and the methods may never be called because the script terminates before the WebView is established and shown.
 
+#### Question: How to implement a WebFrameLoadDelegate in CocoaScript?
 #### Question: How can a script continue to run without blocking other threads / Sketch?
 
 #### The JavaScript -> CocoaScript communication
