@@ -79,7 +79,7 @@ var runThis = function runThis () {
 // the script name, create a string from the array again and wrap the
 // path with 'file://' and the html file name.
 var URL = '';
-var scriptpath = scriptPath.split('/');
+var scriptpath = sketch.scriptPath.split('/');
 
 scriptpath.pop();
 scriptpath = scriptpath.join('/') + '/';
